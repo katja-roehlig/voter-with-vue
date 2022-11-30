@@ -14,37 +14,51 @@
   </head>
   <body>
     <div id="app">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xl offset-xl-4">
-              <div class="card mt-5">
-                <div class="card-header">
-                  <h2 class="card-title">Stimme jetzt ab!</h2>
-                </div>
-                <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl offset-xl-4">
+            <div class="card mt-5">
+              <div class="card-header" :class="brHeaderColor">
+                <h2 class="card-title">Stimme jetzt ab!</h2>
+                <span class="float-end">bisher abgestimmt {{addVotes}}</span>
+              </div>
+              <div class="card-body">
+                <template
+                  v-for="(submission, index) in sortedSubmissions"
+                  :key="submission.id"
+                >
                   <div class="d-flex">
                     <div class="d-shrink-0">
-                        <img :src="submissions[0].img" alt="foto" />
+                      <img :src="submission.img" alt="foto" />
                     </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5>
-                      {{submissions[0].title}}
-                      <span class="float-end text-primary" style="cursor:pointer" @click="onVoting">
-                        
-                        <strong>{{submissions[0].votes}}</strong> ❤️</span
+                    <div class="flex-grow-1 ms-3">
+                      <h5>
+                        {{submission.title}}
+                        <span
+                          class="float-end text-primary"
+                          style="cursor: pointer"
+                          @click="onVoting(index)"
+                        >
+                          <strong>{{submission.votes}}</strong> ❤️</span
+                        >
+                      </h5>
+                      <div>{{submission.desc}}</div>
+                      <small class="text-muted"
+                        >Eingereicht von: {{submission.author}}</small
                       >
-                    </h5>
-                    <div>{{submissions[0].desc}}</div>
-                    <small class="text-muted">Eingereicht von: {{submissions[0].author}}</small>
+                    </div>
                   </div>
-                </div>
+
+                  <hr />
+                </template>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="seed.js"></script>
-        <script src="app.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="seed.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

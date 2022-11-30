@@ -13,7 +13,7 @@ const submissions = [
     desc: "Ein dünnes Schnitzel aus Kalbfleisch.",
     votes: 5,
     author: "Österreich",
-    img: "https://via.placeholder.com/64",
+    img: "https://picsum.photos/64",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const submissions = [
     desc: "Das kaiserliche Gericht.",
     votes: 20,
     author: "China",
-    img: "https://via.placeholder.com/64",
+    img: "https://picsum.photos/64",
   },
   {
     id: 4,
@@ -29,6 +29,6 @@ const submissions = [
     desc: "Ein traditionelles Ragout.",
     votes: 24,
     author: "Ungarn",
-    img: "https://via.placeholder.com/64",
+    img: "https://picsum.photos/64",
   },
 ];
