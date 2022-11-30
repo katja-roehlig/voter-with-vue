@@ -30,9 +30,38 @@ const app = Vue.createApp({
       return { fontSize: this.addVotes * 0.3 + "px" };
     },
   },
+});
+
+/* SubmissionListItem - Component *********************************************/
+
+app.component("SubmissionListItem", {
+  props: ["submission"],
   methods: {
     onVoting(index) {
-      return this.submissions[index].votes++;
+      return this.submission.votes++;
     },
   },
-}).mount("#app");
+  template: `<div class="d-flex">
+    <div class="d-shrink-0">
+      <img :src="submission.img" alt="foto" />
+    </div>
+    <div class="flex-grow-1 ms-3">
+      <h5>
+        {{submission.title}}
+        <span
+          class="float-end text-primary"
+          style="cursor: pointer"
+          @click="onVoting(index)"
+        >
+          <strong>{{submission.votes}}</strong> ❤️</span
+        >
+      </h5>
+      <div>{{submission.desc}}</div>
+      <small class="text-muted"
+        >Eingereicht von: {{submission.author}}</small
+      >
+    </div>
+  </div>`,
+});
+
+const vm = app.mount("#app");
