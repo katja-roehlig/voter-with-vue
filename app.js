@@ -15,7 +15,21 @@ const app = Vue.createApp({
         return subB.votes - subA.votes;
       });
     },
-    
+    bgHeaderColor() {
+      return {
+        //Objekt-Schreibweise
+        "bg-primary": this.addVotes >= 70,
+        "text-white": this.addVotes >= 70,
+        //alternativ: "bg-primary text-white": this.addVotes >=70
+      };
+      /* array-Schreibweise: 
+      if(this.addVotes >= 70){
+        return ["bg-primary", "text-white"];*/
+    },
+    votesFontSize() {
+      return { fontSize: this.addVotes * 0.3 + "px" };
+    },
+  },
   methods: {
     onVoting(index) {
       return this.submissions[index].votes++;

@@ -18,9 +18,12 @@
         <div class="row">
           <div class="col-xl offset-xl-4">
             <div class="card mt-5">
-              <div class="card-header" :class="brHeaderColor">
+              <div class="card-header" :class="bgHeaderColor">
                 <h2 class="card-title">Stimme jetzt ab!</h2>
-                <span class="float-end">bisher abgestimmt {{addVotes}}</span>
+                <span class="float-end"
+                  >bisher abgestimmt
+                  <span :style="votesFontSize">{{addVotes}}</span></span
+                >
               </div>
               <div class="card-body">
                 <template
